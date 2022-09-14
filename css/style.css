@@ -68,13 +68,15 @@ input[type="button"] {
 }
 
 #result-text {
+
     margin-top: 12px;
     font-size: 24px;
     background-color: black;
     display: inline-block;
     font-family: 新細明體;
-    color: rgb(231, 231, 225);
+    color: rgb(196, 114, 196);
     padding: 6px 24px;
+    border-radius: 12px;
 }
 
 @media screen and {
