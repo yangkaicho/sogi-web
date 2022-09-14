@@ -54,7 +54,7 @@ input[type='text'] {
 
 input[type="button"] {
     background-color: aquamarine;
-    margin-top: 48px;
+    margin-top: 24px;
     width: 100px;
     height: 40px;
     border-radius: 6px;
@@ -75,4 +75,13 @@ input[type="button"] {
     font-family: 新細明體;
     color: rgb(231, 231, 225);
     padding: 6px 24px;
+}
+
+@media screen and {
+    max: width 768px;
+
+    #container {
+        width: 100%;
+    }
+
 }
