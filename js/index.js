@@ -7,6 +7,7 @@ const phoneEl = document.querySelector("#phone-number");
 const analyticsEl = document.querySelector("#analytics")
 console.log(phoneEl);
 const timeEl = document.querySelector("#time")
+const resultComment = ["吉", '凶', '吉帶凶', '凶帶吉'];
 
 function analytics() {
     let phoneNumber = phoneEl.value;
@@ -27,6 +28,33 @@ function analytics() {
     }
     let code = analyticsPhoneNumber(phoneNumber);
     let result = ResultText[code - 1];
+    flashResult(result);
+
+
+
+
+
+}
+function getRandInt(start, end) {
+    return Math.floor(Math.random() * (end - start + 1) + start);
+}
+
+let flashCount = 0;
+function flashResult(result) {
+    let comment = resultComment[getRandInt(0, resultComment.length - 1)];
+    resultEl.innerText = comment;
+    resultEl.style.color = (resultEl.innerText == "吉" ||
+        resultEl.innerText == "吉帶凶") ? "yellow" : "black";
+    if (flashCount++ < 50) {
+        setTimeout(
+            function () {
+                flashResult(result);
+            }, getRandInt(25, 50));
+        return;
+    }
+    flashCount = 0;
+
+
     console.log(result)
     resultEl.innerText = result[2];
     resultTextEl.innerText = result[1];
@@ -34,15 +62,8 @@ function analytics() {
     resultEl.style.color = (resultEl.innerText == "吉" ||
         resultEl.innerText == "吉帶凶") ? "yellow" : "black";
 
-
-
-
-
-
-
-
-
 }
+
 //0968168168
 function analyticsPhoneNumber(phoneNumber) {
     let fourNumber = phoneNumber.substring(phoneNumber.length - 4, phoneNumber.length);
