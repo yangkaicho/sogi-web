@@ -6,6 +6,7 @@ console.log(ResultText[1])
 const phoneEl = document.querySelector("#phone-number");
 const analyticsEl = document.querySelector("#analytics")
 console.log(phoneEl);
+const timeEl = document.querySelector("#time")
 
 function analytics() {
     let phoneNumber = phoneEl.value;
@@ -57,4 +58,13 @@ function analyticsPhoneNumber(phoneNumber) {
     //console.log(code);
 
 
+}
+function getTime() {
+    let date = new Date();
+
+    timeEl.innerText = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}\
+     ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    setTimeout(getTime, 1000);
+
+    //console.log(date);
 }
